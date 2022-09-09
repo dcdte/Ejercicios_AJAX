@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Buscador de Canciones</title>
+    <style>
+      html {
+        font-family: sans-serif;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+
+      main {
+        display: flex;
+        flex-direction: column-reverse;
+      }
+
+      .loader {
+        display: none;
+        margin: auto;
+      }
+
+      .song blockquote {
+        white-space: pre-wrap;
+      }
+
+      @media screen and (min-width: 800px) {
+        main {
+          flex-direction: row;
+        }
+        main > * {
+          padding: 1rem;
+          flex-basis: 50%;    
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Buscador de canciones</h1>
+    <form id="song-search">
+      <input type="text" name="artist" placeholder="Nombre del Interprete" required>
+      <br>
+      <input type="text" name="song" placeholder="Nombre de la canción" required>
+      <br>
+      <input type="submit">
+    </form>
+    <img class="loader" src="../assets/three-dots.svg" alt="Cargando...">
+    <aside class="error"></aside>
+    <main>
+      <article class="artist">
+        <h2>Informacion del artista</h2>
+      </article>
+      <article class="song">
+        <h2>Letra de la cancion</h2>
+      </article>
+    </main>
+    <script src="./assets/api_canciones.js"></script>
+  </body>
+</html>
